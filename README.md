@@ -16,5 +16,15 @@ backend to_vncert_certbot
 
 # Generate certs
 ```
+./vncert-certbot.sh
 sudo ./certbot.sh
+```
+
+# Crontab
+```
+sudo crontab -e
+```
+
+```
+0 0 1 * * bash /path/to/certbot.sh > /tmp/certbot.log 2>&1
 ```
