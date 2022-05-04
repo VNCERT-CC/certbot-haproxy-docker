@@ -28,6 +28,10 @@ hostnames=(vncert.vn)
 for i in "${!hostnames[@]}"; do
   domain="${hostnames[i]}"
   echo 'Certbot for '"${domain}"
+  if [ ! -f "/tmp/certbot/${domain}/fullchain1.pem" ]; then
+    echo 'Generate certificate failed!'
+    exit 1
+  fi
   cat "/tmp/certbot/${domain}/fullchain1.pem" "/tmp/certbot/${domain}/privkey1.pem" > "${DIR}/haproxy/certs/${domain}.pem"
   rm -rf "/tmp/certbot/${domain}"
 done
