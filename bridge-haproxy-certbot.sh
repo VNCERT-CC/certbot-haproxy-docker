@@ -26,4 +26,4 @@ docker run -d --restart=unless-stopped --name "${HOST_NAME}" --hostname "${HOST_
   -v "${DIR}/tcp-unix-amd64:/opt/app:ro" \
   -w /opt \
   --network="${HOST_NAME}_private" \
-  ubuntu:latest /opt/app certbot-standalone:80 /tmp/certbot/http.sock
+  ubuntu:latest sh -c '/opt/app certbot-standalone:80 /tmp/certbot/http.sock > /dev/null 2>&1'
