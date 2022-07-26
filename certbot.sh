@@ -22,7 +22,7 @@ docker run --rm \
   --net="vncert_certbot_private" \
   -v "/tmp/certbot:/etc/letsencrypt/archive:rw" \
   certbot/certbot certonly --non-interactive --agree-tos --email dtvinh@vncert.vn --standalone \
-  --cert-name "${CERT_NAME}"
+  --cert-name "${CERT_NAME}" \
   -d vncert.gov.vn -d webinar.vncert.vn -d www.vncert.gov.vn
 
 cat "/tmp/certbot/${CERT_NAME}/fullchain1.pem" "/tmp/certbot/${CERT_NAME}/privkey1.pem" > "${DIR}/haproxy/certs/${CERT_NAME}.pem"
