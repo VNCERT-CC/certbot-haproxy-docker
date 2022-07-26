@@ -12,7 +12,7 @@ frontend http-in
 
 backend to_bridge_certbot
     mode http
-    server bridge_certbot unix@/opt/run/vncert_certbot/http.sock check fall 2 inter 1s
+    server bridge_certbot unix@/opt/run/bridge_certbot/http.sock check fall 2 inter 1s
 ```
 
 # Generate certs
