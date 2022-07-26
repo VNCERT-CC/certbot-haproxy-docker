@@ -5,6 +5,7 @@ Auto cerbot with haproxy on docker
 ```
 frontend http-in
     bind *:80
+    # bind *:443 ssl crt /tmp/certs/vncert-http.pem crt /tmp/certs/vncert-dns.pem
     mode http
     acl is_certbot path_beg /.well-known/acme-challenge
     use_backend to_vncert_certbot if is_certbot
