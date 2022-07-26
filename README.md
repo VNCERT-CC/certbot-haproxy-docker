@@ -8,11 +8,11 @@ frontend http-in
     # bind *:443 ssl crt /tmp/certs/vncert-http.pem crt /tmp/certs/vncert-dns.pem
     mode http
     acl is_certbot path_beg /.well-known/acme-challenge
-    use_backend to_vncert_certbot if is_certbot
+    use_backend to_bridge_certbot if is_certbot
 
-backend to_vncert_certbot
+backend to_bridge_certbot
     mode http
-    server vncert_certbot unix@/opt/run/vncert_certbot/http.sock check fall 2 inter 1s
+    server bridge_certbot unix@/opt/run/vncert_certbot/http.sock check fall 2 inter 1s
 ```
 
 # Generate certs
