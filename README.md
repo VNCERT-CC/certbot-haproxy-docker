@@ -17,7 +17,7 @@ backend to_vncert_certbot
 
 # Generate certs
 ```
-./vncert-certbot.sh
+./bridge-haproxy-certbot.sh
 sudo ./certbot.sh
 ```
 
